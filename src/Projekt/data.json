@@ -3,19 +3,22 @@
     "id": "1",
     "name": "Wireless Mouse",
     "price": 25,
-    "info": "Ergonomic wireless mouse with adjustable DPI and silent clicks."
+    "info": "Ergonomic wireless mouse with adjustable DPI and silent clicks.",
+    "img_path": "images/wireless_mouse.png"
   },
   {
     "id": "2",
     "name": "Mechanical Keyboard",
     "price": 80,
-    "info": "RGB backlit mechanical keyboard with blue switches and anti-ghosting."
+    "info": "RGB backlit mechanical keyboard with blue switches and anti-ghosting.",
+    "img_path": "images/mechanical_keyboard.png"
   },
   {
     "id": "3",
     "name": "Gaming Monitor",
     "price": 300,
-    "info": "27-inch Full HD gaming monitor with 144Hz refresh rate and 1ms response time."
+    "info": "27-inch Full HD gaming monitor with 144Hz refresh rate and 1ms response time.",
+    "img_path": "test/for/invalid/path"
   },
   {
     "id": "4",
