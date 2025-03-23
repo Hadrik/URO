@@ -1,1 +1,182 @@
-[{"id": "i1", "name": "aaa", "price": 10, "info": "bbb"}, {"id": "i2", "name": "ccc", "price": 20, "info": "ddd"}]
+[
+  {
+    "id": "1",
+    "name": "Wireless Mouse",
+    "price": 25,
+    "info": "Ergonomic wireless mouse with adjustable DPI and silent clicks."
+  },
+  {
+    "id": "2",
+    "name": "Mechanical Keyboard",
+    "price": 80,
+    "info": "RGB backlit mechanical keyboard with blue switches and anti-ghosting."
+  },
+  {
+    "id": "3",
+    "name": "Gaming Monitor",
+    "price": 300,
+    "info": "27-inch Full HD gaming monitor with 144Hz refresh rate and 1ms response time."
+  },
+  {
+    "id": "4",
+    "name": "Bluetooth Headphones",
+    "price": 60,
+    "info": "Noise-canceling over-ear Bluetooth headphones with 30-hour battery life."
+  },
+  {
+    "id": "5",
+    "name": "Smartphone Stand",
+    "price": 15,
+    "info": "Adjustable aluminum smartphone stand with anti-slip base."
+  },
+  {
+    "id": "6",
+    "name": "USB-C Hub",
+    "price": 40,
+    "info": "7-in-1 USB-C hub with HDMI, USB 3.0, and SD card reader."
+  },
+  {
+    "id": "7",
+    "name": "External Hard Drive",
+    "price": 120,
+    "info": "2TB external hard drive with USB 3.1 support and shock-resistant casing."
+  },
+  {
+    "id": "8",
+    "name": "Wireless Earbuds",
+    "price": 50,
+    "info": "True wireless earbuds with touch controls and IPX5 water resistance."
+  },
+  {
+    "id": "9",
+    "name": "Smartwatch",
+    "price": 150,
+    "info": "Waterproof smartwatch with heart rate monitor and sleep tracking."
+  },
+  {
+    "id": "10",
+    "name": "Portable Charger",
+    "price": 35,
+    "info": "10,000mAh portable power bank with fast charging support."
+  },
+  {
+    "id": "11",
+    "name": "Webcam",
+    "price": 55,
+    "info": "1080p HD webcam with built-in microphone and privacy shutter."
+  },
+  {
+    "id": "12",
+    "name": "Wireless Charger",
+    "price": 20,
+    "info": "Fast wireless charging pad compatible with Qi-enabled devices."
+  },
+  {
+    "id": "13",
+    "name": "Laptop Cooling Pad",
+    "price": 30,
+    "info": "Adjustable laptop cooling pad with dual fans and LED lighting."
+  },
+  {
+    "id": "14",
+    "name": "Action Camera",
+    "price": 200,
+    "info": "4K action camera with waterproof casing and image stabilization."
+  },
+  {
+    "id": "15",
+    "name": "Smart Light Bulb",
+    "price": 22,
+    "info": "Wi-Fi-enabled smart light bulb with adjustable color and brightness."
+  },
+  {
+    "id": "16",
+    "name": "VR Headset",
+    "price": 250,
+    "info": "Standalone VR headset with 6DOF tracking and high-resolution display."
+  },
+  {
+    "id": "17",
+    "name": "Electric Toothbrush",
+    "price": 40,
+    "info": "Rechargeable electric toothbrush with multiple brushing modes."
+  },
+  {
+    "id": "18",
+    "name": "Robot Vacuum",
+    "price": 300,
+    "info": "Smart robot vacuum with app control and auto-recharge feature."
+  },
+  {
+    "id": "19",
+    "name": "Noise Machine",
+    "price": 35,
+    "info": "White noise machine with customizable sound profiles and timer."
+  },
+  {
+    "id": "20",
+    "name": "Wireless Gaming Controller",
+    "price": 50,
+    "info": "Multi-platform wireless gaming controller with customizable buttons."
+  },
+  {
+    "id": "21",
+    "name": "Mini Projector",
+    "price": 150,
+    "info": "Compact HD mini projector with built-in speakers and HDMI support."
+  },
+  {
+    "id": "22",
+    "name": "Smart Coffee Maker",
+    "price": 180,
+    "info": "Wi-Fi-enabled coffee maker with customizable brewing settings."
+  },
+  {
+    "id": "23",
+    "name": "Digital Drawing Tablet",
+    "price": 100,
+    "info": "Pressure-sensitive drawing tablet with customizable shortcut buttons."
+  },
+  {
+    "id": "24",
+    "name": "Bluetooth Speaker",
+    "price": 45,
+    "info": "Portable Bluetooth speaker with 360° sound and waterproof design."
+  },
+  {
+    "id": "25",
+    "name": "Security Camera",
+    "price": 130,
+    "info": "1080p HD security camera with motion detection and night vision."
+  },
+  {
+    "id": "26",
+    "name": "Smart Thermostat",
+    "price": 200,
+    "info": "Wi-Fi-enabled smart thermostat with energy-saving features."
+  },
+  {
+    "id": "27",
+    "name": "Electric Kettle",
+    "price": 50,
+    "info": "Stainless steel electric kettle with temperature control and auto shut-off."
+  },
+  {
+    "id": "28",
+    "name": "Dash Cam",
+    "price": 120,
+    "info": "Full HD dash cam with loop recording and G-sensor emergency lock."
+  },
+  {
+    "id": "29",
+    "name": "Standing Desk",
+    "price": 250,
+    "info": "Adjustable height standing desk with memory presets."
+  },
+  {
+    "id": "30",
+    "name": "Portable Air Purifier",
+    "price": 75,
+    "info": "Compact HEPA air purifier with USB power supply."
+  }
+]

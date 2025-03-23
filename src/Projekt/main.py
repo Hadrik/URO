@@ -1,6 +1,6 @@
 ﻿from idlelib.mainmenu import menudefs
 from tkinter import *
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, filedialog
 from tkinter.font import Font
 from typing import TypedDict, Callable, Optional
 from typing import NewType
@@ -16,12 +16,12 @@ DataList = NewType('DataList', list[Data])
 
 class App:
     data: DataList
-    path: str = './data.json'
+    default_path = './data.json'
 
     def __init__(self, root: Tk):
         root.option_add('*Font', Font(family='Helvetica', size=14))
 
-        self.load_data()
+        self.load_data(self.default_path)
 
         # Notebook
         self.notebook = ttk.Notebook(root)
@@ -40,8 +40,18 @@ class App:
         self.notebook.add(self.n_add, text='Přidat')
         self.notebook.add(self.n_info, text='Zobrazit')
 
+        # Filter
+        filter_container = Frame(root)
+        label = Label(filter_container, text='Filtr')
+        sv = StringVar()
+        sv.trace_add("write", self.filter)
+        self.filter_box = Entry(filter_container, textvariable=sv)
+        label.pack(side='left')
+        self.filter_box.pack(side='right')
+        filter_container.pack(side='top', fill=X)
+
         # Tree
-        self.tree_frame = Frame()
+        self.tree_frame = Frame(root)
         self.tree = self.Tree(self.tree_frame)
         self.tree.fill(self.data)
         self.tree.on_click(self.show_info)
@@ -85,18 +95,40 @@ class App:
         settings = self.Settings(self.n_add)
         settings.on_load(self.load_data)
         settings.on_save(self.save_data)
-        
 
-    def load_data(self):
+    def filter(self, name: str, *args):
+        for item in self.tree.tree.get_children():
+            if name.lower() in self.tree.tree.item(item, 'values')[1].lower():
+                self.tree.tree.item(item, tags='visible')
+            else:
+                self.tree.tree.item(item, tags='hidden')
+
+    def load_data(self, path: str | None = None):
+        if path is None:
+            path = filedialog.askopenfilename(
+                title="Vyberte soubor",
+                filetypes=[('JSON files', '*.json')],
+                defaultextension='*.json',
+                initialdir='.')
         try:
-            with open(self.path, 'r') as file:
+            with open(path, 'r') as file:
                 self.data = json.load(file)
+                try:
+                    self.tree.refresh(self.data)
+                except AttributeError:
+                    pass
         except FileNotFoundError:
             print('Cannot load data, file not found!')
             self.data = DataList([Data(id='i1', name='aaa', price=10, info='bbb'), Data(id='i2', name='ccc', price=20, info='ddd')])
 
-    def save_data(self):
-        with open(self.path, 'w') as file:
+    def save_data(self, path: str | None = None):
+        if path is None:
+            path = filedialog.asksaveasfilename(
+                title="Uložte soubor",
+                filetypes=[('JSON files', '*.json')],
+                defaultextension='*.json',
+                initialdir='.')
+        with open(path, 'w') as file:
             json.dump(self.data, file)
 
     def __find_by_id(self, id: str) -> Data | None:
@@ -140,19 +172,34 @@ class App:
         click_cb: Optional[Callable[[str], None]] = None
 
         def __init__(self, root: Frame):
-            self.tree = ttk.Treeview(root, columns=('id', 'name'), show='headings')
+            self.container = Frame(root)
+
+            self.tree = ttk.Treeview(self.container, columns=('id', 'name'), show='headings')
             self.tree.heading('id', text='ID')
             self.tree.heading('name', text='Název')
-            self.tree.column('id', width=100, stretch=NO)
+            self.tree.column('id', width=30, stretch=NO)
             self.tree.column('name', width=250, minwidth=250)
 
             self.tree.bind('<<TreeviewSelect>>', self.__clicked)
 
-            self.tree.pack(fill=BOTH, expand=True)
+            self.scrollbar = ttk.Scrollbar(self.container, orient='vertical', command=self.tree.yview)
+            self.tree.configure(yscrollcommand=self.scrollbar.set)
+            self.scrollbar.grid(row=0, column=1, sticky='ns')
+            self.tree.grid(row=0, column=0, sticky='nsew')
+            self.container.grid_rowconfigure(0, weight=1)
+            self.container.grid_columnconfigure(0, weight=1)
+            self.container.pack(fill=BOTH, expand=True)
 
         def fill(self, data: DataList):
             for item in data:
                 self.insert(item)
+
+        def clear(self):
+            self.tree.delete(*self.tree.get_children())
+
+        def refresh(self, data: DataList):
+            self.clear()
+            self.fill(data)
 
         def insert(self, data: Data):
             for item in self.tree.get_children():
@@ -284,8 +331,8 @@ class App:
 
         def set(self, data: Data):
             self.name.config(text=data['name'])
-            self.id.config(text=data['id'])
-            self.price.config(text=str(data['price']))
+            self.id.config(text=f"ID: {data['id']}")
+            self.price.config(text=f"{str(data['price'])} Kč")
             self.info.config(state=NORMAL)
             self.info.delete(0.0, 'end')
             if data['info'] is not None:
@@ -325,6 +372,7 @@ class App:
                 return
 
             self.edit_cb(id)
+
 
 root = Tk()
 app = App(root)
