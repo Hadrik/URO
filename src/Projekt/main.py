@@ -64,6 +64,7 @@ class App:
         # Menu
         self.menulist = Menu(root)
         self.menulist.add_command(label='Nastavení', command=self.open_settings)
+        self.menulist.add_command(label='O aplikaci', command=lambda: self.About(root))
         root.config(menu=self.menulist)
 
         # Pack
@@ -200,6 +201,15 @@ class App:
             if self.color_cb is not None and color[1] is not None:
                 self.color_cb(color[1])
 
+    class About:
+        def __init__(self, root):
+            self.top = Toplevel(root, takefocus=True)
+            self.top.title('O aplikaci')
+            self.top.geometry('230x100')
+            self.top.resizable(False, False)
+
+            self.label = Label(self.top, text='Program na evidenci produktů v obchodě\n\nTRA0117', wraplength=200)
+            self.label.pack(fill=BOTH, expand=True)
 
     class Tree:
         click_cb: Optional[Callable[[str], None]] = None
