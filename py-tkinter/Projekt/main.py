@@ -18,7 +18,7 @@ DataList = NewType('DataList', list[Data])
 
 class App:
     data: DataList
-    default_path = './data.json'
+    default_path = 'data.json'
 
     def __init__(self, root: Tk):
         root.option_add('*Font', Font(family='Helvetica', size=14))
@@ -155,7 +155,7 @@ class App:
     @staticmethod
     def __copy_image(path: str) -> str | None:
         try:
-            return shutil.copy2(path, './images')
+            return shutil.copy2(path, 'images')
         except Exception:
             return None
 
