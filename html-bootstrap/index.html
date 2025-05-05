@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>URO Projekt</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script src="js/bootstrap.bundle.js" defer></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">URO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-settings">Nastavení</button>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-about">O aplikaci</button>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container mt-4">
+    <div class="row">
+        <div class="container col">
+            <div class="input-group">
+                <span class="input-group-text" id="filer-label">Filtr</span>
+                <input type="text" class="form-control" aria-describedby="filer-label">
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Název</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>1</td>
+                        <td>Item 1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Item 2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Item 3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-add" type="button" role="tab">Přidat</button>
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-view" type="button" role="tab">Zobrazit</button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-add" role="tabpanel" tabindex="0">
+                    <form class="text-center">
+                        <div class="row mb-3 mt-3">
+                            <label for="input-name" class="col-sm-3 col-form-label">Název</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="input-name">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="input-id" class="col-sm-3 col-form-label">ID</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="input-id">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="input-price" class="col-sm-3 col-form-label">Cena</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="input-price">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="input-img" class="col-sm-3 col-form-label">Obrázek</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" id="input-img">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="input-info" class="col-form-label">Info</label>
+                            <textarea class="form-control ms-2" id="input-info" rows="10"></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="tab-pane fade" id="nav-view" role="tabpanel" tabindex="0">
+                    <div class="container text-center">
+                        <div class="row mb-3 mt-3">
+                            <label for="view-name" class="col-sm-3 col-form-label">Název</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="view-name" value="Item 1" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="view-id" class="col-sm-3 col-form-label">ID</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="view-id" value="1" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="view-price" class="col-sm-3 col-form-label">Cena</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="view-price" value="10Kc" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="view-info" class="col-form-label">Info</label>
+                            <textarea class="form-control ms-2" id="view-info" rows="5" disabled readonly></textarea>
+                        </div>
+                        <div class="row">
+                            <img src="https://avatars.githubusercontent.com/u/89924371?v=4" class="rounded mx-auto" alt="obrazek" height="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal-settings" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-settings-label">Nastavení</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container text-center">
+                    <div class="row">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Importovat</button>
+                    </div>
+                    <div class="row mt-3 mb-3">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Exportovat</button>
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-color">Změnit barvu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-color" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-color-label">Nastavení barvy</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container text-center">
+                    <div class="row">
+                        <input type="color" id="input-color" value="#000000">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-about" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-about-label">O aplikaci</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container text-center">
+                    <div class="row">
+                        <h5>URO Projekt</h5>
+                    </div>
+                    <div class="row">
+                        <p>Richard Trávníček (TRA0117)</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
